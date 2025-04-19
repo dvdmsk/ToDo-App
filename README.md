@@ -19,7 +19,6 @@ It supports full CRUD operations via API, authorization, and seamless user exper
 - **TypeScript** — strong typing and IDE support
 - **SCSS** — modular styling
 - **Fetch API** — interaction with backend
-- **React Router** — navigation and filters
 - **Classnames Utility** — conditional class management
 - **Prettier** — auto-formatting on save
 - **Vite** — fast dev environment and build tool
