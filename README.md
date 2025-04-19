@@ -38,8 +38,6 @@ It supports full CRUD operations via API, authorization, and seamless user exper
 
 ## 🖼️ Screenshot
 
-> *(Insert screenshot below)*
-
 ![Todo App Screenshot](./todoapp.gif)
 
 ## 🚀 Getting Started
