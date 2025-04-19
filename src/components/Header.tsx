@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react';
-import { createTodo, USER_ID } from '../api/todos';
+import { createTodo } from '../api/todos';
 import { Todo } from '../types/Todo';
 import classNames from 'classnames';
+import { useUser } from '../hooks/useUser';
 
 type Props = {
   title: string;
@@ -31,6 +32,7 @@ export const Header: React.FC<Props> = ({
   onToggle,
 }) => {
   const field = useRef<HTMLInputElement>(null);
+  const { user } = useUser();
 
   useEffect(() => {
     field.current?.focus();
@@ -61,9 +63,13 @@ export const Header: React.FC<Props> = ({
       return;
     }
 
+    if (!user) {
+      return;
+    }
+
     const newTodo: Omit<Todo, 'id'> = {
       title: field.current?.value.toString().trim() || '',
-      userId: USER_ID,
+      userId: user.id,
       completed: false,
     };
 

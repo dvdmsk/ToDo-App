@@ -8,9 +8,8 @@ import { FilterType } from './types/FilterType';
 import { Header } from './components/Header';
 import { ErrorInfo } from './components/ErrorInfo';
 import { Footer } from './components/Footer';
-import { useLocalStorage } from './hooks/useLocalStorage';
-import { User } from './types/User';
 import Auth from './components/Auth';
+import { useUser } from './hooks/useUser';
 
 const getFilteredTodos = (todos: Todo[], filter: FilterType): Todo[] => {
   const filteredTodos = [...todos];
@@ -26,7 +25,7 @@ const getFilteredTodos = (todos: Todo[], filter: FilterType): Todo[] => {
 };
 
 export const App: React.FC = () => {
-  const [user, setUser] = useLocalStorage<User | null>(null, 'user');
+  const { user } = useUser();
   const [todos, setTodos] = useState<Todo[]>([]);
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -54,7 +53,7 @@ export const App: React.FC = () => {
   }, [user]);
 
   if (!user) {
-    return <Auth setUser={setUser} />;
+    return <Auth />;
   }
 
   const onSubmit = (value: Todo): void => {

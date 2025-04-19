@@ -2,12 +2,10 @@ import React, { useState } from 'react';
 import { User } from '../types/User';
 import { createUser, getUser } from '../api/user';
 import classNames from 'classnames';
+import { useUser } from '../hooks/useUser';
 
-type Props = {
-  setUser: (user: User | null) => void;
-};
-
-const Auth: React.FC<Props> = ({ setUser }) => {
+const Auth: React.FC = () => {
+  const { setUser } = useUser();
   const [email, setEmail] = useState('');
   const [userName, setUserName] = useState('');
   const [isLoading, setIsLoading] = useState(false);

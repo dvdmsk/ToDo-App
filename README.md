@@ -15,6 +15,7 @@ It supports full CRUD operations via API, authorization, and seamless user exper
 ## 🛠️ Technologies Used
 
 - **React (with Hooks)** — component-based UI
+- **React Context (useContext)** — global access to the user
 - **TypeScript** — strong typing and IDE support
 - **SCSS** — modular styling
 - **Fetch API** — interaction with backend
